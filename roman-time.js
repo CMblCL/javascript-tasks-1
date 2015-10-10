@@ -60,14 +60,16 @@ function DrawRomanTime(time) {
     II   X   X    OO   LL          V V   
     II  X     X        LLLLLLL      V    
 */
+    var ASCII_TIME_HEIGHT = 7;
     var romanI = ["II", "II", "II", "II", "II", "II", "II"];
     var romanV = ["V       V", "V       V", "V       V", " V     V ", "  V   V  ", "   V V   ", "    V    "];
     var romanX = ["X     X", " X   X ", "  X X  ", "   X   ", "  X X  ", " X   X ", "X     X"];
     var romanL = ["LL     ", "LL     ", "LL     ", "LL     ", "LL     ", "LL     ", "LLLLLLL"];
     var romanO = ["    ", " OO ", " OO ", "    ", " OO ", " OO ", "    "];
     
-    var romanTime = [];    
-    for(var i = 0; i < 7; i++){
+    var romanTime = [];
+    romanTime["height"] = ASCII_TIME_HEIGHT;
+    for(var i = 0; i < ASCII_TIME_HEIGHT; i++){
         romanTime[i] = "";
     }
     
@@ -90,7 +92,7 @@ function DrawRomanTime(time) {
                 romanSign = romanO;
                 break;
         }
-        for(var j = 0; j < 7; j++) {
+        for(var j = 0; j < ASCII_TIME_HEIGHT; j++) {
             romanTime[j] += " " + romanSign[j] + " ";
         }
     }
@@ -121,7 +123,7 @@ minutes = GetRomanNuber(minutes);
 var time = hours + ":" + minutes;
 var romanTime = DrawRomanTime(time);
 
-for (var i = 0; i < 7; i++) {
+for (var i = 0; i < romanTime.height; i++) {
     console.log(romanTime[i] + "\n");
 }
 //console.log(time);
