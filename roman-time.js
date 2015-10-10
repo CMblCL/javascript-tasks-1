@@ -45,7 +45,11 @@ function GetRomanNuber(number) {
 }
 
 
-
+/*
+Возвращает время в ASCII графике
+time: string
+result: array of strings
+*/
 function DrawRomanTime(time) {
 /*
     II  X     X        LL       V       V
