@@ -66,6 +66,7 @@ function DrawRomanTime(time) {
     var romanX = ["X     X", " X   X ", "  X X  ", "   X   ", "  X X  ", " X   X ", "X     X"];
     var romanL = ["LL     ", "LL     ", "LL     ", "LL     ", "LL     ", "LL     ", "LLLLLLL"];
     var romanO = ["    ", " OO ", " OO ", "    ", " OO ", " OO ", "    "];
+    var romanZero = ["       ", "       ", "       ", "=======", "       ", "       ", "       "];
     
     var romanTime = [];
     romanTime["height"] = ASCII_TIME_HEIGHT;
@@ -90,6 +91,9 @@ function DrawRomanTime(time) {
                 break;
             case ":":
                 romanSign = romanO;
+                break;
+            case "—":
+                romanSign = romanZero;
                 break;
         }
         for(var j = 0; j < ASCII_TIME_HEIGHT; j++) {
