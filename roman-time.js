@@ -48,15 +48,16 @@ function GetRomanNuber(number) {
 
 function DrawRomanTime(time) {
 /*
-    II  X     X        LL     
-    II   X   X    OO   LL     
-    II    X X     OO   LL     
-    II     X           LL     
-    II    X X     OO   LL     
-    II   X   X    OO   LL     
-    II  X     X        LLLLLLL
+    II  X     X        LL       V       V
+    II   X   X    OO   LL       V       V
+    II    X X     OO   LL       V       V
+    II     X           LL        V     V 
+    II    X X     OO   LL         V   V  
+    II   X   X    OO   LL          V V   
+    II  X     X        LLLLLLL      V    
 */
     var romanI = ["II", "II", "II", "II", "II", "II", "II"];
+    var romanV = ["V       V", "V       V", "V       V", " V     V ", "  V   V  ", "   V V   ", "    V    "];
     var romanX = ["X     X", " X   X ", "  X X  ", "   X   ", "  X X  ", " X   X ", "X     X"];
     var romanL = ["LL     ", "LL     ", "LL     ", "LL     ", "LL     ", "LL     ", "LLLLLLL"];
     var romanO = ["    ", " OO ", " OO ", "    ", " OO ", " OO ", "    "];
@@ -71,6 +72,9 @@ function DrawRomanTime(time) {
         switch (time[i]) {
             case "I":
                 romanSign = romanI;
+                break;
+            case "V":
+                romanSign = romanV;
                 break;
             case "X":
                 romanSign = romanX;
