@@ -1,4 +1,9 @@
-function ReplaceNumber(number) {
+/*
+возвращает число римскими цифрами
+number: integer 0..99
+result: string
+*/
+function GetRomanNuber(number) {
     var result = "";
 
     if (number == 0) {
@@ -56,7 +61,7 @@ if (hours < 0 || hours > 23 || minutes < 0 || minutes > 59) {
     return;
 }
 
-hours = ReplaceNumber(hours);
-minutes = ReplaceNumber(minutes);
+hours = GetRomanNuber(hours);
+minutes = GetRomanNuber(minutes);
 
 console.log(hours + ":" + minutes);
