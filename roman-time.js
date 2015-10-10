@@ -46,6 +46,51 @@ function GetRomanNuber(number) {
 
 
 
+function DrawRomanTime(time) {
+/*
+    II  X     X        LL     
+    II   X   X    OO   LL     
+    II    X X     OO   LL     
+    II     X           LL     
+    II    X X     OO   LL     
+    II   X   X    OO   LL     
+    II  X     X        LLLLLLL
+*/
+    var romanI = ["II", "II", "II", "II", "II", "II", "II"];
+    var romanX = ["X     X", " X   X ", "  X X  ", "   X   ", "  X X  ", " X   X ", "X     X"];
+    var romanL = ["LL     ", "LL     ", "LL     ", "LL     ", "LL     ", "LL     ", "LLLLLLL"];
+    var romanO = ["    ", " OO ", " OO ", "    ", " OO ", " OO ", "    "];
+    
+    var romanTime = [];    
+    for(var i = 0; i < 7; i++){
+        romanTime[i] = "";
+    }
+    
+    var romanSign = [];    
+    for(var i = 0; i < time.length; i++) {
+        switch (time[i]) {
+            case "I":
+                romanSign = romanI;
+                break;
+            case "X":
+                romanSign = romanX;
+                break;
+            case "L":
+                romanSign = romanL;
+                break;
+            case ":":
+                romanSign = romanO;
+                break;
+        }
+        for(var j = 0; j < 7; j++) {
+            romanTime[j] += " " + romanSign[j] + " ";
+        }
+    }
+    return romanTime;
+}
+
+
+
 var hours = process.argv[2];
 var minutes = process.argv[3];
 var errorMessage = "Время указано не верно"; 
@@ -65,5 +110,10 @@ if (hours < 0 || hours > 23 || minutes < 0 || minutes > 59) {
 
 hours = GetRomanNuber(hours);
 minutes = GetRomanNuber(minutes);
+var time = hours + ":" + minutes;
+var romanTime = DrawRomanTime(time);
 
-console.log(hours + ":" + minutes);
+for (var i = 0; i < 7; i++) {
+    console.log(romanTime[i] + "\n");
+}
+//console.log(time);
